@@ -46,9 +46,22 @@ a span-splitting variant (~219 ms median), so the span variant was dropped.
 
 ## Kit check
 
-- `node cli/makefun.mjs check --kit . --repo <repo>` — see the check output
-  recorded at submission time (transcripts are not required for this
-  competition: `transcripts_required: false`).
+- `node cli/makefun.mjs check --kit . --repo <repo> --commit 3c58728`
+  (run 2026-11-21): 5 passed, 0 failed, 15 skipped, 5 checked at submission
+  (repo public / owner / created-after-open / commit pushed / duplicate
+  snapshot — the site's checks at submission). Transcripts are not required
+  for this competition (`transcripts_required: false`).
+
+## Local grade
+
+- `node cli/makefun.mjs grade-local --kit . --bot <repo> --driver process`
+  (run 2026-11-21): scores `{"cases_passed":6,"cases_total":6,"passed":1}`,
+  6 of 6 points, L1 regrade reproduced byte for byte,
+  result_sha256
+  `001901192760fa226207b0d8cb520e62548ec6bde0964ade1fc9d4cf6bc2a264`
+  (note: the server's harness runs Node v26.13.1, this machine v24.22.1, so
+  the server's result_sha256 will differ). Docker was not available on this
+  machine, so the process driver was used as the CLI suggests.
 
 ## Files
 
